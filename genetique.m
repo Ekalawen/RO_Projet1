@@ -6,10 +6,10 @@ premiere_gen = generation_init( nb_edt );
 trouve = false;
 NB_MAX_ITER = 100;
 iter = 1;
-generation_edt = premiere_gen;
 
 while (~trouve &&  iter <= NB_MAX_ITER)
     
+    %Calculer le score de chaque vecteur edt
     %Calculer le score de chaque contraintes edt
     scores = score(generation_edt * 100) + apply(generation_edt,2,fonction_cout_vect);
     

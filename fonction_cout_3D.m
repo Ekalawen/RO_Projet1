@@ -1,4 +1,4 @@
-function [ resultat ] = fonction_cout(X)
+function [ resultat ] = fonction_cout_3D(X)
 
 % Les variables p, c, d et t sont globales et définies dans le main
 
@@ -36,23 +36,10 @@ V
 % son indice compte dans la fonction de minimisation. Donc lorsque il
 % s'agit d'un créneau d'extrémités de journée.
 % C ressemblera à ça C = [1; 0; 0; 1; 1; 0; 0; 1; 1; 0; 0 ; 1 ...]
+C = getC(size(V));
 
-C = [];
-for i=1:n
-    if (mod((i-1), 4) == 0 || mod((i-1), 4) == 3)
-        C = [C ; 1];
-    else
-        C = [C ; 0];
-    end
-end
-% On complète avec des 0 pour les cases qui ont étés rajoutés !
-for i=n+1:size(V)
-    C = [C ; 0];
-end
-C
-
+% Il ne reste plus qu'à faire le produit matriciel !
 resultat = C' * V ;
-return
 
-end
+return
 
