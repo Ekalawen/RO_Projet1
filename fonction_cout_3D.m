@@ -1,4 +1,7 @@
-function [ resultat ] = fonction_cout(X, p, c, t, d)
+function [ resultat ] = fonction_cout_3D(X)
+
+% Les variables p, c, d et t sont globales et définies dans le main
+
 % Cette fonction renvoie le scalaire de l'évaluation du cout de X
 % X est une matrice en 3 dimensions de taille p * c * (t * d)
 % p est le nombre de profs
@@ -34,6 +37,9 @@ V
 % s'agit d'un créneau d'extrémités de journée.
 % C ressemblera à ça C = [1; 0; 0; 1; 1; 0; 0; 1; 1; 0; 0 ; 1 ...]
 
+% TODO
+% C = getC();
+
 C = [];
 for i=1:n
     if (mod((i-1), 4) == 0 || mod((i-1), 4) == 3)
@@ -50,6 +56,4 @@ C
 
 resultat = C' * V ;
 return
-
-end
 

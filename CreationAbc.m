@@ -3,16 +3,9 @@
 %  b étant le vecteur associé à la matrice A dans Ax = b
 %  C étant le vecteur associé à la fonction coût dans min (c'x)
 
-function[A, b] = CreationAB()
 
-% d est le nombre de jours
-d = 5;
-% c est le nombre de promo
-c = 2;
-% t est le nombre de créneaux par jours
-t = 4;
-% p est le nombre de profs
-p = 8;
+function[A, b] = CreationAB()
+% Les variables p, c, d et t sont globales et définies dans le main
 
 n = 300; % nombre de lignes de la matrice ie le nombre de contraintes total
 m = 600;  % nombre de colonnes de la matrice ie le nombre de variables

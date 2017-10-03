@@ -1,4 +1,4 @@
-function [ premiere_gen ] = generation_init( nb_edt )
+function [ premiere_gen ] = generation_init(nb_edt)
 %UNTITLED2 Summary of this function goes here
 %   Detailed explanation goes here
 
