@@ -1,4 +1,7 @@
-function [ resultat ] = fonction_cout(X, p, c, t, d)
+function [ resultat ] = fonction_cout(X)
+
+% Les variables p, c, d et t sont globales et définies dans le main
+
 % Cette fonction renvoie le scalaire de l'évaluation du cout de X
 % X est une matrice en 3 dimensions de taille p * c * (t * d)
 % p est le nombre de profs

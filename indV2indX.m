@@ -1,4 +1,6 @@
-function [i, j, k] = indV2indX(indV, p, c, t, d)
+function [i, j, k] = indV2indX(indV)
+
+% Les variables p, c, d et t sont globales et définies dans le main
 
 % Bonjour je suis la fonction non commenté que tu n'arriveras jamais à
 % débugger si jamais elle plante <3

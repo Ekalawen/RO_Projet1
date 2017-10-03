@@ -1,4 +1,7 @@
-function [ x ] = CreationX(V, p, c, t, d)
+function [ x ] = CreationX(V)
+
+% Les variables p, c, d et t sont globales et définies dans le main
+
 % Cette fonction transforme le vecteur V sous forme de matrice 3D x
 for i=1:p
     for j=1:c
