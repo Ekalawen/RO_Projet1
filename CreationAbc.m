@@ -3,7 +3,10 @@
 %  b étant le vecteur associé à la matrice A dans Ax = b
 %  C étant le vecteur associé à la fonction coût dans min (c'x)
 
-function[A, b, C] = CreationAbc(d , t , c)
+function[A, b, C] = CreationAbc()
+
+% Les variables p, c, d et t sont globales et définies dans le main
+
 n = 300; % nombre de lignes de la matrice ie le nombre de contraintes total
 m = 600;  % nombre de colonnes de la matrice ie le nombre de variables
 

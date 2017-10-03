@@ -1,4 +1,6 @@
-function [ promo1, promo2 ] = getEdtPromos(X, p, c, t, d)
+function [ promo1, promo2 ] = getEdtPromos(X)
+
+% Les variables p, c, d et t sont globales et définies dans le main
 
 promo1 = zeros(t, d); % initialiser promo
 promo2 = promo1;      % idem
