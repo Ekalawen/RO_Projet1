@@ -20,8 +20,9 @@
     % La matrice des contraintes A    
     % Le vecteur des seconds membres B
     % Le vecteur de la fonction coût C
-    [A, B, C] = CreationAbc();
-    
+    [A, B] = CreationAB();
+    C = getC(320);
+    % !!!!!!!
 % Choix de l'algorithme
 % choix = 1 => Coupes de Gomory
 % choix = 2 => Séparations et Évaluations

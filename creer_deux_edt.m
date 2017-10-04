@@ -7,7 +7,7 @@ chance_mutation = 0.1; %chance qu'un edt mute de maniere aléatoire
 for i=1:size(generation_edt,2)
     choix_gene=randi(2);
     %papa donne au fils, maman à la fille
-    if choix_gene=1
+    if choix_gene == 1
         generation_edt(i,ind_fils) = generation_edt(i,ind_papa);
         generation_edt(i,ind_fille) = generation_edt(i,ind_maman);
     %maman donne au fils, papa à la fille
@@ -17,8 +17,8 @@ for i=1:size(generation_edt,2)
     end
     
     %mutation
-    i = rand();
-    if i<=chance_mutation
+    proba = rand();
+    if proba<=chance_mutation
         %choix du gene à muter
         gene_mute = randi(size(generation_edt(1)));
         %modifier cette valeur de l'edt fils (seul le fils mute)
