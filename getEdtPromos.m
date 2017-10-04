@@ -1,5 +1,7 @@
 function [ promo1, promo2 ] = getEdtPromos(X)
 
+% X est la matrice de l'emploi du temps en 3D
+
 % Les variables p, c, d et t sont globales et définies dans le main
 global p;
 global c;

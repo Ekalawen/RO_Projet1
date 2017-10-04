@@ -18,8 +18,10 @@ for i=1:n
 end
 
 % On complète avec des 0 pour les cases qui ont étés rajoutés !
-for i=n+1:tailleMax
-    C = [C ; 0];
+if exist('tailleMax', 'var')
+    for i=n+1:tailleMax
+        C = [C ; 0];
+    end
 end
 
 return;

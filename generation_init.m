@@ -6,5 +6,6 @@ function [ premiere_gen ] = generation_init(nb_edt)
 % et des 1, qui représente nb_edt edt 
 
 premiere_gen = (randi(2, 320, nb_edt)) - 1;
+size(premiere_gen)
 end
 
