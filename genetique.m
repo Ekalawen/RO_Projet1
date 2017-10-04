@@ -1,3 +1,7 @@
+%%Idée prof : générer une population qui respecte les contraintes (tant pis
+%%si c'est long, après ça sera super efficace)
+%% Autre idée : intégrer des edt qui respectent les contraintes parmi tous ceux générés aléatoirement
+%%
 
 function [ meilleur_enfant ] = genetique( nb_edt )
 % Méthode génétique 
