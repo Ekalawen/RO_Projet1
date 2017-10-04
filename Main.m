@@ -20,7 +20,7 @@
     % La matrice des contraintes A    
     % Le vecteur des seconds membres B
     % Le vecteur de la fonction coût C
-    [A, B, C] = CreationAbc();
+    [A, B, C] = CreationABC();
     
 % Choix de l'algorithme
 % choix = 1 => Coupes de Gomory
@@ -29,8 +29,11 @@
 choix = choix_algorithme();
 
 % Lancement de l'algorithme
-% Récupération de la matrice en 3D de l'emploi du temps
-X = run_algorithme(choix, A, B, C);
+% Récupération du vecteur de l'emploi du temps
+V = run_algorithme(choix, A, B, C);
+
+% On convertit notre vecteur colonne en notre matrice en 3D
+X = CreationX(V);
 
 % Extraction des emplois du temps des promos 1 et 2
 [Promo1, Promo2] = getEdtPromos(X);
