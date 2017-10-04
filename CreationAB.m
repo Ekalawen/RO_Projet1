@@ -6,6 +6,10 @@
 
 function[A, b] = CreationAB()
 % Les variables p, c, d et t sont globales et définies dans le main
+global p;
+global c;
+global d;
+global t;
 
 n = 300; % nombre de lignes de la matrice ie le nombre de contraintes total
 m = 600;  % nombre de colonnes de la matrice ie le nombre de variables

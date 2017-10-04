@@ -1,6 +1,10 @@
 function [i, j, k] = indV2indX(indV)
 
 % Les variables p, c, d et t sont globales et définies dans le main
+global p;
+global c;
+global d;
+global t;
 
 % Bonjour je suis la fonction non commenté que tu n'arriveras jamais à
 % débugger si jamais elle plante <3

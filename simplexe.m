@@ -2,7 +2,6 @@
 % Compléter le code MATLAB là où il y a ??
 % Tester sur des exemples variés (utiliser notamment le script test)
 %
-function [x,F] = simplexe(OPT,c,A,b)
 %
 %% Fonction simplexe
 %

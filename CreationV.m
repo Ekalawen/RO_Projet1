@@ -1,6 +1,10 @@
 function [ V ] = CreationV(x)
 
 % Les variables p, c, d et t sont globales et définies dans le main
+global p;
+global c;
+global d;
+global t;
 
 % Cette fonction transforme une matrice 3D x sous forme de vecteur V
 
