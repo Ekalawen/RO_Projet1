@@ -5,14 +5,21 @@ function [  ] = creer_deux_edt(ind_maman, ind_papa, generation_edt, ind_fils, in
 chance_mutation = 0.1; %chance qu'un edt mute de maniere aléatoire
 
 for i=1:size(generation_edt,1)
-    choix_gene=randi(2);
-    %papa donne au fils, maman à la fille
-    if choix_gene == 1
+    choix_gene1=randi(2);
+    choix_gene2=randi(2);
+    %papa donne au fils
+    if choix_gene1 == 1
         generation_edt(i,ind_fils) = generation_edt(i,ind_papa);
-        generation_edt(i,ind_fille) = generation_edt(i,ind_maman);
-    %maman donne au fils, papa à la fille
     else
+    %maman donne au fils
         generation_edt(i,ind_fils) = generation_edt(i,ind_maman);
+    end 
+    
+    if choix_gene2 == 1
+    %maman donne a la fille
+        generation_edt(i,ind_fille) = generation_edt(i,ind_maman);
+    else
+    %papa donne à la fille
         generation_edt(i,ind_fille) = generation_edt(i,ind_papa);
     end
     

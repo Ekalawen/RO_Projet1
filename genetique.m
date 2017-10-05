@@ -20,20 +20,20 @@ function [ meilleur_enfant ] = genetique( nb_edt )
     while (~trouve &&  iter <= NB_MAX_ITER)
             
         %Calculer le score de chaque vecteur edt
-        scores = score(generation_edt);
+        scores = score(generation_edt) * 1000;
         
         for p = 1: size(generation_edt,2)
             scores(p) = scores(p)+ fonction_cout_vecteur (generation_edt(:,p));
         end
         %Selectionner les meilleurs vecteurs
-        [scores_tries, ind_tri] = sort(scores,'descend');
+        [scores_tries, ind_tri] = sort(scores);
         size(scores_tries);
         
         indices_choisis=ind_tri(1:nb_edt/2);
         indices_non_choisis=ind_tri((nb_edt/2)+1:nb_edt);
     
         % Calcul de l'écart entre les scores entre les deux generations
-        nouveau_score_min = scores(indices_choisis(1));
+        nouveau_score_min = scores(indices_choisis(1))
         if ancien_score_min == nouveau_score_min
             generations_stables = generations_stables + 1;
         end
@@ -41,7 +41,7 @@ function [ meilleur_enfant ] = genetique( nb_edt )
         % Calcul du score max pour la prochaine iteration
         ancien_score_min = nouveau_score_min;
 
-        if (generations_stables >= 5) 
+        if (generations_stables >= 100) 
             trouve = true;
         else 
             
