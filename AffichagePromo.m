@@ -27,27 +27,27 @@
     
     for i=1:5
         for j=1:4
-            if Promo(j,i) == 1
+            if Promo(j,i) == 3
                 creneau(i,j).FaceColor='red';
                 text(2*(i-1)+0.2, 4-j+0.5, 'Droite Maths');
             end
-            if Promo(j,i) == 2
+            if Promo(j,i) == 4
                 creneau(i,j).FaceColor='magenta';
                 text(2*(i-1)+0.2, 4-j+0.5, 'Ellips Maths');
             end
-            if Promo(j,i) ==3
+            if Promo(j,i) ==2
                 creneau(i,j).FaceColor='yellow';
                 text(2*(i-1)+0.1, 4-j+0.5, 'Proton Physique');
             end
-            if Promo(j,i) == 4
+            if Promo(j,i) == 6
                 creneau(i,j).FaceColor='green';
                 text(2*(i-1)+0.2, 4-j+0.5, 'Pascal Info');
             end
             if Promo(j,i) ==5
                 creneau(i,j).FaceColor='cyan';
-                text(2*(i-1)+0.2, 4-j+0.5, 'Dell Info');
+                text(2*(i-1)+0.2, 4-j+0.5, 'Ada Info');
             end
-            if Promo(j,i) ==6
+            if Promo(j,i) ==1
                 creneau(i,j).FaceColor='blue';
                 text(2*(i-1)+0.2, 4-j+0.5, 'Young Anglais');
             end
@@ -58,6 +58,10 @@
             if Promo(j,i) ==8
                 creneau(i,j).FaceColor=[1 0.7 0];
                 text(2*(i-1)+0.2, 4-j+0.5, 'Bigceps Sport');
+            end
+            if Promo(j,i) ==9
+                creneau(i,j).FaceColor=[0.5 0.5 0.5];
+                text(2*(i-1)+0.2, 4-j+0.5, 'Partiel');
             end
         end
     end

@@ -53,11 +53,11 @@ A(5, indX2indV(2,1,1) : indX2indV(2,1,d * t)) = 1;
 b(5) = 3;
 
 
-%% Contrainte 4 bis - Le prof 2 donne 0 cours à la promo 2
+%% Contrainte 4 bis - Le prof 2 donne 3 cours à la promo 2
 
 A(6, indX2indV(2,2,1) : indX2indV(2,2,d * t)) = 1;
 
-b(6) = 0;
+b(6) = 3;
 
 %% Contrainte 5 - Le prof 3 donne 5 cours à la promo 1
 
@@ -166,12 +166,13 @@ for i=1:4
         end
     end
 end
+%% TRAVAIL A FAIRE LORS DU 1er TP de RO
 
 for i=7:8
     for j=1:c
         for l=1:d
-            A(60 + 10 * (i - 1) + 5 * (j - 1) + l,indX2indV(i,j,((l - 1) * t + 1)):indX2indV(i,j,(l * t))) = 1;
-            b(60 + 10 * (i - 1) + 5 * (j - 1) + l) = 1; 
+            A(20 + 10 * (i - 1) + 5 * (j - 1) + l,indX2indV(i,j,((l - 1) * t + 1)):indX2indV(i,j,(l * t))) = 1;
+            b(20 + 10 * (i - 1) + 5 * (j - 1) + l) = 1; 
         end
     end
 end
@@ -181,8 +182,8 @@ end
 for i=5:6
     for j=1:c
         for l=1:d
-            A(80 + 10 * (i - 1) + 5 * (j - 1) + l,indX2indV(i,j,((l - 1) * t + 1)):indX2indV(i,j,(l * t))) = 1;
-            b(80 + 10 * (i - 1) + 5 * (j - 1) + l) = 2; 
+            A(20 + 10 * (i - 1) + 5 * (j - 1) + l,indX2indV(i,j,((l - 1) * t + 1)):indX2indV(i,j,(l * t))) = 1;
+            b(20 + 10 * (i - 1) + 5 * (j - 1) + l) = 2; 
         end
     end
 end
@@ -191,7 +192,9 @@ end
 
 for j = 1:c
     for k = 1:(d * t)
-        A(100 + 20 * (j - 1) + k,indX2indV(1,j,k):indX2indV(p,j,k)) = 1;
+        for i = 1:p
+            A(100 + 20 * (j - 1) + k,indX2indV(i,j,k)) = 1;
+        end
         b(100 + 20 * (j - 1) + k) = 1;
     end
 end
@@ -200,8 +203,10 @@ end
 
 for i = 1:p
     for k = 1:(d * t)
-        A(140 + 20 * (j - 1) + k,indX2indV(i,1,k):indX2indV(i,c,k)) = 1;
-        b(140 + 20 * (j - 1) + k) = 1;
+        for j =1:c
+            A(140 + 20 * (i - 1) + k,indX2indV(i,j,k)) = 1;
+        end
+        b(140 + 20 * (i - 1) + k) = 1;
     end
 end
 
