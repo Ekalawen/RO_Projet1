@@ -16,7 +16,7 @@ end
 if ~(F - floor(F)<10^-10 & size(find((x-floor(x))<10^-6)) == 0)
     % déterminer le plus grande partie fractionnaire parmi les composantes
     % de B
-    [~,ind] = min(GAMMA(:,m)-floor(GAMMA(:,m))); 
+    [~,ind] = max(GAMMA(:,m)-floor(GAMMA(:,m))); 
 
 
     % Ajouter la nouvelle contrainte
