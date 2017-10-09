@@ -22,7 +22,7 @@ switch choix
         V = separations_et_evaluations(A, B);
     case 3
         disp("Algorithme Génétique\n");
-        echantillon_taille = 1000;
+        echantillon_taille = 400;
         V = genetique(echantillon_taille);
         % V est un vecteur de taille n
     otherwise
