@@ -52,7 +52,9 @@ function [ meilleur_enfant ] = genetique( nb_edt )
             %Créer nb_edt/4 paires d'edt
             for j=1:2:(nb_edt/2)
            
-                creer_deux_edt(indices_choisis(j), indices_choisis(j+1), generation_edt, indices_non_choisis(j), indices_non_choisis(j+1));
+                [fils, fille]=creer_deux_edt(indices_choisis(j), indices_choisis(j+1), generation_edt);
+                generation_edt(:,indices_non_choisis(j)) = fils;
+                generation_edt(:, indices_non_choisis(j+1)) = fille;;
             end
         end
         iter = iter + 1;
