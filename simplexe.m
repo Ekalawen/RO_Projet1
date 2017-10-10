@@ -3,6 +3,8 @@
 % Tester sur des exemples variés (utiliser notamment le script test)
 %
 %
+function [x,F] = simplexe(OPT,c,A,b)
+
 %% Fonction simplexe
 %
 % Le pb : Opt F(x) = c'*x
@@ -107,9 +109,11 @@ while any(OPT*pentes > 0) % Y-a-t-il un chemin améliorant ?
     % Regle de pivotage du SIMPLEXE
     % GAMMA(indbeta,alpha) est le pivot de l'iteration
     %
-    GAMMA(indbeta,:) = GAMMA(indbeta,:) / GAMMA(indbeta,alpha);
-    GAMMAMOINS(1:indbeta-1,:) = (GAMMA(1:indbeta-1,alpha)./GAMMA(indbeta,alpha)).*GAMMA(indbeta,:);
-    GAMMAMOINS(indbeta+1:m,:) = (GAMMA(indbeta+1:m,alpha)./GAMMA(indbeta,alpha)).*GAMMA(indbeta,:);
+    GAMMAMOINS = zeros(size(GAMMA,1),size(GAMMA,2));
+    pivot = GAMMA(indbeta,alpha);
+    GAMMA(indbeta,:) = GAMMA(indbeta,:) / pivot;
+    GAMMAMOINS(1:indbeta-1,:) = (GAMMA(1:indbeta-1,alpha)).*GAMMA(indbeta,:);
+    GAMMAMOINS(indbeta+1:m,:) = (GAMMA(indbeta+1:m,alpha)).*GAMMA(indbeta,:);
     GAMMAMOINS(indbeta,:)=zeros(1,size(GAMMA,2));
     GAMMA = GAMMA - GAMMAMOINS;
     %
