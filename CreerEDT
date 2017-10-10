@@ -1,0 +1,11 @@
+[intcon,A,b,Aeq,beq,lb,ub] = CreationParamIntlinprog;
+C = getC;
+V = intlinprog(C,intcon,A,b,Aeq,beq,lb,ub)
+x = CreationX(V);
+[Promo1,Promo2] = getEDTPromos(x);
+AffichageResultats(Promo1,Promo2);
+
+
+# A mettre dans le main (pour Alexys)
+
+
