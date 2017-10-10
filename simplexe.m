@@ -3,8 +3,6 @@
 % Tester sur des exemples variés (utiliser notamment le script test)
 %
 %
-function [x,F] = simplexe(OPT,c,A,b)
-
 %% Fonction simplexe
 %
 % Le pb : Opt F(x) = c'*x
