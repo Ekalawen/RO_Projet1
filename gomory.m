@@ -3,7 +3,17 @@
 
 function [x,F] = gomory(OPT,c,A,b,nbIteration,nbVariables)
 
-[x,F,GAMMA] = simplexe_gomory(OPT,c,A,b); % min => OPT=-1
+%[x,F,GAMMA] = simplexe_gomory(OPT,c,A,b); % min => OPT=-1
+
+n=size(A,1); % Nombre de linges de GAMMA
+m=size(A,2); % Nombre de colonnes de GAMMA
+
+A1 = A(1:n-(m-nbVar),1:nbVar);
+A2 = A(n-(m-nbVar):m,1:nbVar);
+
+b1 = b(1:n-(m-nbVar));
+b2 = b(m-(m-nbVar):m);
+x = linprog(c,A2,b2,A1,b1);
 
 n=size(A,1); % Nombre de linges de GAMMA
 m=size(A,2); % Nombre de colonnes de GAMMA
@@ -17,7 +27,6 @@ if ~(F - floor(F)<10^-10 & size(find((x-floor(x))<10^-6)) == 0)
     % déterminer le plus grande partie fractionnaire parmi les composantes
     % de B
     [~,ind] = max(GAMMA(:,m)-floor(GAMMA(:,m))); 
-
 
     % Ajouter la nouvelle contrainte
     L = zeros(1,m);
@@ -36,6 +45,8 @@ if ~(F - floor(F)<10^-10 & size(find((x-floor(x))<10^-6)) == 0)
     % Mise à jour de la fonction à maximiser / minimiser
     c=[c;0];
     
+    % Projetter la matrice A dans la base des variables différentes des
+    % variables d'écarts
     for i = 1:n
         coeff = A(n+1,nbVariables+i);
         A(n+1,:) = A(n+1,:) - coeff*A(i,:);
