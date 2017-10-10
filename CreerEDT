@@ -1,21 +1,11 @@
-[AA,bb] = CreationAB()
-Aeq = AA(1:20,1:320);
-beq = bb(1:20);
-A = AA(21:300,1:320);
-b = bb(21:300);
-lb = zeros(1:320);
-ub = ones(1:320);
+[intcon,A,b,Aeq,beq,lb,ub] = CreationParamIntlinprog;
 C = getC;
-for i = 1:320
-   intcon(i) = i;
-end
 V = intlinprog(C,intcon,A,b,Aeq,beq,lb,ub)
 x = CreationX(V);
 [Promo1,Promo2] = getEDTPromos(x);
 AffichageResultats(Promo1,Promo2);
 
 
-# A venir function CreationParamIntlinprog() -> [intcon,A,b,Aeq,beq,lb,ub]
 # A mettre dans le main (pour Alexys)
 
 

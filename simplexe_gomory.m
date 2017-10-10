@@ -53,7 +53,7 @@ b = b.*s;
 %
 %% PHASE I
 % Trouver un sommet initial
-
+A(:,n-m+1:n) - eye(m) 
 if A(:,n-m+1:n) == eye(m)
     % la base canonique A(:,nim+1) ... A(:,n) est une base réalisable
     % puisque b>=0
