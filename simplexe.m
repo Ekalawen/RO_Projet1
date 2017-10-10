@@ -9,6 +9,7 @@
 %         Ax = b
 %         x >= 0
 % 
+function [x,F] = simplexe(OPT,c,A,b)
 %% EN ENTREE
 %  OPT = +1 si pb de maximisation
 %  OPT = -1 si pb de minimisation
