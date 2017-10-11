@@ -1,3 +1,4 @@
+%% Fonction qui génère la matrice 3D x à partir du résultat du solveur glpsol. On récupère ce résultat dans un fichier txt et on copie-colle ce résultat ici.
 
 function[x] = glpsol()
 % le responsable qualité est très triste
@@ -325,6 +326,5 @@ x(8,2,11) = 0;
 x(8,2,14) = 0;
 x(8,2,18) = 0;
 x(8,2,19) = 0;
-
 
 return
