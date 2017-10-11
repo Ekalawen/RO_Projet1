@@ -4,7 +4,6 @@
 % on représente un créneau par un rectangle de 1 sur 2
 % L'emploi du temps est contenu dans le rectangle ([0;0], [0,10],
 % [4,10],[4,0])
-% 
 
 %on définit la fenêtre
     j=0:10;

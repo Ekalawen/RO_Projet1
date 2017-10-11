@@ -1,3 +1,4 @@
+% script de test temporaire
 [intcon,A,b,Aeq,beq,lb,ub] = CreationParamIntlinprog;
 C = getC;
 V = intlinprog(C,intcon,A,b,Aeq,beq,lb,ub)

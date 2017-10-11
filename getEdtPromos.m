@@ -14,9 +14,9 @@ promo2 = promo1;      % idem
 promo1(1, 1) = 9; % partiel le lundi matin
 promo2(1, 1) = 9; % idem
 
-for j=1:c
-    for k=1:d*t
-        for i=1:p
+for j=1:c % pour toutes les promos
+    for k=1:d*t % pour tous les créneaux
+        for i=1:p % pour tous les profs
             if(X(i, j, k) == 1)
                 jour = ceil(k / t) ; % jour du cours <=> colonne promo (ceil = partie entière sup) 
                 heure = mod(k, t);   % créneau sur la journée du cours <=> ligne promo
