@@ -1,5 +1,6 @@
 function [ scores15] = score_contrainte15( generation_edt )
 
+%voir le rapport, contrainte 15
 scores15 = zeros(size(generation_edt,2),1)';
 cours_prof = zeros(8,size(generation_edt,2));
 

@@ -1,7 +1,6 @@
 function [ scores14 ] = score_contrainte14( generation_edt )
-%UNTITLED4 Summary of this function goes here
-%   Detailed explanation goes here
 
+%voir le rapport, contrainte 14
 scores14 = zeros(size(generation_edt,2),1)';
 
 %Pour chaque créneaux de chaque promo

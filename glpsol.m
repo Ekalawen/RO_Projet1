@@ -1,5 +1,7 @@
 
 function[x] = glpsol()
+% le responsable qualité est très triste
+% il se deresponsabilise de tant d'abscence de clarté
 
 x = zeros(8,2,20);
 
