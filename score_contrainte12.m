@@ -8,4 +8,4 @@ for i=1: 20 : 301
     scores12 = scores12 + generation_edt(i,:);
 
 end
-
+scores12;

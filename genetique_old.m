@@ -15,22 +15,14 @@ function [ meilleur_enfant ] = genetique( nb_edt )
     %Generation aléatoire de la population d'emplois du temps
     % nb edt générés aléatoirement au début de l'algo et traités lors de la
     % recherche de solution
-    edt_bons = 4; %nombres d'edt repondant aux contraintes
     premiere_gen = generation_init( nb_edt );
-    
-    for i = 1:edt_bons
-        %generer un emploi du temps repondant aux contraintes
-        un_bon_edt = creer_edt_correct();
-        %remplacer un edt par cet edt
-        premiere_gen(:,i) = un_bon_edt;
-    end 
     trouve = false; %indique si on a trouvé un edt satisfaisant
 
-    NB_MAX_ITER = 20;
+    NB_MAX_ITER = 1000;
     iter = 1; %nombre d'iteration
     generations_stables = 0; 
 
-    ancien_score_min = 100;
+    ancien_score_min = 1000;
     generation_edt = premiere_gen;
     
     %Calcul de C
@@ -41,7 +33,7 @@ function [ meilleur_enfant ] = genetique( nb_edt )
         %Calculer le score des contraintes de chaque vecteur edt
         % On multiplie par 1000 pour que les contraintes aient plus de
         % poids que le coût
-        scores = score(generation_edt) * 100;
+        scores = score(generation_edt) * 1000;
 
         iter
         
@@ -51,8 +43,9 @@ function [ meilleur_enfant ] = genetique( nb_edt )
         end
         %Selectionner les meilleurs vecteurs
         [scores_tries, ind_tri] = sort(scores);
-        
         scores_tries
+        size(scores_tries);
+        
         
         indices_choisis=ind_tri(1:nb_edt/2);
         indices_non_choisis=ind_tri((nb_edt/2)+1:nb_edt);
@@ -93,5 +86,5 @@ function [ meilleur_enfant ] = genetique( nb_edt )
 
     end 
     meilleur_enfant =  generation_edt(:,indices_choisis(1));
-    
+
 end
