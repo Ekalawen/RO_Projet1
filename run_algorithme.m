@@ -19,28 +19,27 @@ switch choix
         [intcon, Aintlinprog, Bintlinprog, Aeq, beq, lb, ub] = CreationParamIntlinprog();
         V = intlinprog(C, intcon, Aintlinprog, Bintlinprog, Aeq, beq, lb, ub);
     case 2
-
-        disp("Algorithme par Séparations et Évaluations\n");
-        V = separations_et_evaluations(A, B);
-    case 3
-        disp("Algorithme Génétique\n");
-        echantillon_taille = 1000;
-
-        disp("Algorithme Génétique (un peu lent car échantillons de tailles importantes)\n");
+        disp("Algorithme Génétique (un peu lent car échantillons de tailles importantes)");
         echantillon_taille = 400;
-
         V = genetique(echantillon_taille);
         % V est un vecteur de taille n
     case 3
-        disp("Algorithme de Gomory\n");
+        disp("Algorithme de Gomory");
         [V, f] = gomory(1, C, A, B, 1, n);
         % V est un vecteur de taille supérieur à n
+    case 4
+        % On a pas besoin d'envoyer les matrices pour ce solveur là
+        % car il faut rentrer les équations à la main
+        disp("Algorithme GLP");
+        X = glpsol();
+        % glpsol renvoie une matrice 3D mais on veut un vecteur, donc on le
+        % convertit 
+        V = CreationV(X);
     otherwise
         disp("Cet algorithme n'existe pas !");
 end
 
 % Si V est trop grand, on garde juste la partie qui nous intéresse
-
 V = V(1:n);
 
 return

@@ -27,14 +27,14 @@ n = p * c * t *d;
 % les profs
 
 V = [];
-for i=1:size(X, 1)
-    for j=1:size(X, 2)
-        for k=1:size(X, 3)
+for i=1:size(X, 1) % pour chaque prof
+    for j=1:size(X, 2) % pour chaque promo
+        for k=1:size(X, 3) % pour chaque créneau
             V = [V ; X(i, j, k)];
         end
     end
 end
-V
+
 % Calcul de du vecteur C de taille n * 1
 % Ce vecteur vaut 1 lorsque un triplet prof/classe/créneau correspondant à
 % son indice compte dans la fonction de minimisation. Donc lorsque il

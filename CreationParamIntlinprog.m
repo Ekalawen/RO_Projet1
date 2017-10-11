@@ -148,12 +148,12 @@ beq(18) = 1;
 
 %% Contrainte 11 - Les profs 7 et 8 n'ont aucun cours en dehors du créneau 15
 
-for i=7:8
-    for j=1:c
-        for k=1:14
+for i=7:8 % les profs 7 et 8
+    for j=1:c % pour toutes les promos
+        for k=1:14 % pour les 14 premiers créneaux
             Aeq(19,indX2indV(i,j,k)) = 1;
         end
-        for k=16:(d * t)
+        for k=16:(d * t) % pour les derniers créneaux
             Aeq(19,indX2indV(i,j,k)) = 1;
         end
     end
@@ -163,8 +163,8 @@ beq(19) = 0;
 
 %% Contrainte 12 - Aucune promo n'a cours en créneau 1
 
-for i=1:p
-    for j=1:c
+for i=1:p % pour tous les profs
+    for j=1:c % pour toutes les promos
         Aeq(20, indX2indV(i,j,1)) = 1;
     end
 end
@@ -177,18 +177,11 @@ A = zeros(m,p*d*c*t);
 
 %% Contrainte 13 - Une promo ne doit pas avoir deux fois le même cours dans la même journée sauf en informatique
 
-for i=1:4
-    for j=1:c
-        for l=1:d
-            A(10 * (i - 1) + 5 * (j - 1) + l,indX2indV(i,j,((l - 1) * t + 1)):indX2indV(i,j,(l * t))) = 1;
-            b(10 * (i - 1) + 5 * (j - 1) + l) = 1; 
-        end
-    end
-end
-
-for i=7:8
-    for j=1:c
-        for l=1:d
+% les profs d'informatique sont les profs numéro 5 et 6
+profs = [1, 2, 3, 4, 7, 8];
+for i = profs % pour tous les profs qui ne sont pas en info
+    for j=1:c % pour toutes les promos
+        for l=1:d % pour tous les jours
             A(10 * (i - 1) + 5 * (j - 1) + l,indX2indV(i,j,((l - 1) * t + 1)):indX2indV(i,j,(l * t))) = 1;
             b(10 * (i - 1) + 5 * (j - 1) + l) = 1; 
         end
@@ -197,9 +190,9 @@ end
 
 %% Contrainte 13 bis - Une promo peut avoir jusqu'à deux fois un cours d'informatique dans la même journée
 
-for i=5:6
-    for j=1:c
-        for l=1:d
+for i=5:6 % pour les profs d'info
+    for j=1:c % pour toutes les promos
+        for l=1:d % pour tous les jours
             A(10 * (i - 1) + 5 * (j - 1) + l,indX2indV(i,j,((l - 1) * t + 1)):indX2indV(i,j,(l * t))) = 1;
             b(10 * (i - 1) + 5 * (j - 1) + l) = 2; 
         end
@@ -208,9 +201,9 @@ end
 
 %% Contrainte 14 - Une promo ne peut suivre qu'un seul cours à la fois
 
-for j = 1:c
-    for k = 1:(d * t)
-        for i = 1:p
+for j = 1:c % pour toutes les promos
+    for k = 1:(d * t) % pour tous les créneaux
+        for i = 1:p % pour tous les profs
             A(80 + 20 * (j - 1) + k,indX2indV(i,j,k)) = 1;
         end
         b(80 + 20 * (j - 1) + k) = 1;
@@ -219,9 +212,9 @@ end
 
 %% Contrainte 15 - Un prof ne peut donner qu'un cours à la fois
 
-for i = 1:p
-    for k = 1:(d * t)
-        for j =1:c
+for i = 1:p % pour tous les profs
+    for k = 1:(d * t) % pour tous les créneaux
+        for j =1:c % pour toutes les promos
             A(120 + 20 * (i - 1) + k,indX2indV(i,j,k)) = 1;
         end
         b(120 + 20 * (i - 1) + k) = 1;
