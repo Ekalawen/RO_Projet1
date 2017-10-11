@@ -26,7 +26,7 @@ function [ meilleur_enfant ] = genetique( nb_edt )
     end 
     trouve = false; %indique si on a trouvé un edt satisfaisant
 
-    NB_MAX_ITER = 20;
+    NB_MAX_ITER = 2000;
     iter = 1; %nombre d'iteration
     generations_stables = 0; 
 
@@ -52,7 +52,7 @@ function [ meilleur_enfant ] = genetique( nb_edt )
         %Selectionner les meilleurs vecteurs
         [scores_tries, ind_tri] = sort(scores);
         
-        scores_tries
+        scores_tries;
         
         indices_choisis=ind_tri(1:nb_edt/2);
         indices_non_choisis=ind_tri((nb_edt/2)+1:nb_edt);
