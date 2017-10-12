@@ -182,8 +182,8 @@ profs = [1, 2, 3, 4, 7, 8];
 for i = profs % pour tous les profs qui ne sont pas en info
     for j=1:c % pour toutes les promos
         for l=1:d % pour tous les jours
-            A(10 * (i - 1) + 5 * (j - 1) + l,indX2indV(i,j,((l - 1) * t + 1)):indX2indV(i,j,(l * t))) = 1;
-            b(10 * (i - 1) + 5 * (j - 1) + l) = 1; 
+            A(d*c * (i - 1) + d * (j - 1) + l,indX2indV(i,j,((l - 1) * t + 1)):indX2indV(i,j,(l * t))) = 1;
+            b(d*c * (i - 1) + d * (j - 1) + l) = 1; 
         end
     end
 end
@@ -193,8 +193,8 @@ end
 for i=5:6 % pour les profs d'info
     for j=1:c % pour toutes les promos
         for l=1:d % pour tous les jours
-            A(10 * (i - 1) + 5 * (j - 1) + l,indX2indV(i,j,((l - 1) * t + 1)):indX2indV(i,j,(l * t))) = 1;
-            b(10 * (i - 1) + 5 * (j - 1) + l) = 2; 
+            A(d*c * (i - 1) + d * (j - 1) + l,indX2indV(i,j,((l - 1) * t + 1)):indX2indV(i,j,(l * t))) = 1;
+            b(d*c * (i - 1) + d * (j - 1) + l) = 2; 
         end
     end
 end
@@ -204,9 +204,9 @@ end
 for j = 1:c % pour toutes les promos
     for k = 1:(d * t) % pour tous les créneaux
         for i = 1:p % pour tous les profs
-            A(80 + 20 * (j - 1) + k,indX2indV(i,j,k)) = 1;
+            A(p*d*c + d*t * (j - 1) + k,indX2indV(i,j,k)) = 1;
         end
-        b(80 + 20 * (j - 1) + k) = 1;
+        b(p*d*c + d*t * (j - 1) + k) = 1;
     end
 end
 
@@ -215,9 +215,9 @@ end
 for i = 1:p % pour tous les profs
     for k = 1:(d * t) % pour tous les créneaux
         for j =1:c % pour toutes les promos
-            A(120 + 20 * (i - 1) + k,indX2indV(i,j,k)) = 1;
+            A(p*d*c + d*t*c + d*t * (i - 1) + k,indX2indV(i,j,k)) = 1;
         end
-        b(120 + 20 * (i - 1) + k) = 1;
+        b(p*d*c + d*t*c + d*t * (i - 1) + k) = 1;
     end
 end
 
