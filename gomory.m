@@ -26,20 +26,20 @@ function [x,F] = gomory(OPT,c,A,b,nbIteration,nbVariables)
 n=size(A,1); % Nombre de linges de GAMMA
 m=size(A,2); % Nombre de colonnes de GAMMA
 
-% % Ajouter la contrainte x est à valeurs dans {0,1} uniquement à la première
-% % itération
-% if (nbIteration == 1)
-%     % Ajouter les contraintes à A
-%     lignes = [eye(nbVariables),zeros(nbVariables,m-nbVariables)];
-%     colonnes = [zeros(n,nbVariables); eye(nbVariables)];
-%     A = [[A;lignes],colonnes];
-%     
-%     % Ajouter les résultats des constraintes dans b
-%     b = [b;ones(nbVariables,1)];
-%     
-%     % Ajouter les poids nuls des nouvelles variables d'écarts dans c
-%     c = [c;zeros(nbVariables,1)];
-% end
+% Ajouter la contrainte x est à valeurs dans {0,1} uniquement à la première
+% itération
+if (nbIteration == 1)
+    % Ajouter les contraintes à A
+    lignes = [eye(nbVariables),zeros(nbVariables,m-nbVariables)];
+    colonnes = [zeros(n,nbVariables); eye(nbVariables)];
+    A = [[A;lignes],colonnes];
+    
+    % Ajouter les résultats des constraintes dans b
+    b = [b;ones(nbVariables,1)];
+    
+    % Ajouter les poids nuls des nouvelles variables d'écarts dans c
+    c = [c;zeros(nbVariables,1)];
+end
 
 % Appliquer le simplexe en variables continues
 [x,F,GAMMA] = simplexe_gomory(OPT,c,A,b); 
@@ -78,16 +78,16 @@ else
 
     % Ajouter le poids de la nouvelle variables d'écart dans c
     c=[c;0];
-% 
-%     % Projetter la matrice A dans la base des variables d'écarts 
-%     % (pour obtenir l'identité dans la partie droite de A)
-%     for i = 1:n
-%         coeff = A(n+1,nbVariables+i);
-%         A(n+1,:) = A(n+1,:) - coeff*A(i,:);
-%     end
+
+    % Projetter la matrice A dans la base des variables d'écarts 
+    % (pour obtenir l'identité dans la partie droite de A)
+    for i = 1:n
+        coeff = A(n+1,nbVariables+i);
+        A(n+1,:) = A(n+1,:) - coeff*A(i,:);
+    end
     
     % Résoudre le nouveau problème linéaire
-    [x,F] = gomory(-OPT,b',A',c',nbIteration+1,nbVariables);
+    [x,F] = gomory(OPT,c,A,b,nbIteration+1,nbVariables);
 end
    
 end

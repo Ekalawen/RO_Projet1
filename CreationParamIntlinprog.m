@@ -17,12 +17,10 @@ m = 280; % nombre de contraintes d'inégalités
 
 %% intcon est le vecteur indiquant si les indices des x(i,j,k) sont entiers ;
 % ici, ils le sont tous
-for i = 1:p*d*c*t
-    intcon(i) = i;
-end
+intcon = 1:p*d*c*t;
 
 
-%% lb est un vecteur comprtant les bornes inférieurs des x(i,j,k) ; tel que pour tout i, V(i) >= lb(i) = 0
+%% lb est un vecteur comportant les bornes inférieurs des x(i,j,k) ; tel que pour tout i, V(i) >= lb(i) = 0
 lb = zeros(1,p*d*c*t);
 
 
@@ -148,12 +146,10 @@ beq(18) = 1;
 
 %% Contrainte 11 - Les profs 7 et 8 n'ont aucun cours en dehors du créneau 15
 
+creneau = [1:14,16:d*t]; % tous les créneau hormi le créneau 15
 for i=7:8 % les profs 7 et 8
     for j=1:c % pour toutes les promos
-        for k=1:14 % pour les 14 premiers créneaux
-            Aeq(19,indX2indV(i,j,k)) = 1;
-        end
-        for k=16:(d * t) % pour les derniers créneaux
+        for k=creneau
             Aeq(19,indX2indV(i,j,k)) = 1;
         end
     end
