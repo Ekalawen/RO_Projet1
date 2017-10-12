@@ -13,7 +13,7 @@ global d;
 global t;
 
 n = 20;  % nombre de contraintes d'égalités
-m = 280; % nombre de contraintes d'inégalités
+m = d*t*p + c*d*t + p*c*d; % nombre de contraintes d'inégalités
 
 %% intcon est le vecteur indiquant si les indices des x(i,j,k) sont entiers ;
 % ici, ils le sont tous
@@ -24,7 +24,7 @@ intcon = 1:p*d*c*t;
 lb = zeros(1,p*d*c*t);
 
 
-%% ub est un vecteur comprtant les bornes supérieurs des x(i,j,k) ; tel que pour tout i,  V(i) <= lb(i) = 1
+%% ub est un vecteur comprtanresoudre les conflit gitt les bornes supérieurs des x(i,j,k) ; tel que pour tout i,  V(i) <= lb(i) = 1
 ub = ones(1,p*d*c*t);
 
 
@@ -60,7 +60,6 @@ Aeq(4, indX2indV(1,2,1) : indX2indV(1,2,d * t)) = 1;
 beq(4) = 3;
 
 %% Contrainte 4 - Le prof 2 donne trois cours à la promo 1
-
 Aeq(5, indX2indV(2,1,1) : indX2indV(2,1,d * t)) = 1;
 
 beq(5) = 3;
@@ -96,7 +95,7 @@ Aeq(10, indX2indV(4,2,1) : indX2indV(4,2,d * t)) = 1;
 
 beq(10) = 4;
 
-%% Contrainte 7 - Le prof 5 donne 0 cours à la promo 1
+%% Contrainte 7 - Le prof 5 dresoudre les conflit gitonne 0 cours à la promo 1
 
 Aeq(11, indX2indV(5,1,1) : indX2indV(5,1,d * t)) = 1;
 
@@ -114,7 +113,7 @@ Aeq(13, indX2indV(6,1,1) : indX2indV(6,1,d * t)) = 1;
 
 beq(13) = 6;
 
-%% Contrainte 8 bis - Le prof 6 donne 0 cours à la promo 2
+%% Contrainte 8 bis - Le profresoudre les conflit git 6 donne 0 cours à la promo 2
 
 Aeq(14, indX2indV(6,2,1) : indX2indV(6,2,d * t)) = 1;
 
