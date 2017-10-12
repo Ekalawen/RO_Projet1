@@ -25,7 +25,7 @@ switch choix
         % V est un vecteur de taille n
     case 3
         disp("Algorithme de Gomory");
-        [V, f] = gomory(1, C, A, B, 1, n);
+        [V, f] = gomory(1, C, A, B', 1, n);
         % V est un vecteur de taille supérieur à n
     case 4
         % On a pas besoin d'envoyer les matrices pour ce solveur là
